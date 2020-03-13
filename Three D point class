@@ -1,0 +1,71 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class threeDpoint{
+	private:
+		int x,y,z;
+	public:
+		threeDpoint(){
+			x=y=z=0;	
+		}
+		threeDpoint(int a,int b,int c){
+			x=a;
+			y=b;
+			z=c;
+		}
+		void display(int a,int b,int c){
+			cout<<x<<","<<y<<","<<z<<endl;
+		}
+		void move(int a,int b,int c){
+			x=a;
+			y=b;
+			z=c;
+			cout<<x<<","<<y<<","<<z<<endl;
+		}
+};
+class twopoint{
+	private:
+		static int p0;
+		int x,y;
+	public:
+		twopoint(){
+			x=y=0;
+		}
+		twopoint(int a,int b){
+			x=a;
+			y=b;
+		}
+		static void display(int a,int b){
+			cout<<x<<","<<y<<endl;
+		}
+		static void move(int a,int b){
+			x=a;
+			y=b;
+			cout<<x<<","<<y<<endl;
+		}
+		static int getx(int a){
+			return a;
+		}
+};
+static twopoint::p0=0;
+int main()
+{
+	twopoint p1(2,3),p2(5,7),p3;
+	p1.display(2,3);
+	p2.display(5,7);
+	p3.display(0,0);
+	p1.move(4,6);
+	p3.move(3,3);
+	p1.display(2,3);
+	p2.display(5,7);
+	p3.display(0,0);
+	p1.move(4,6);
+	p3.move(3,3);
+	threeDpoint p4(2,3,3),p5(4,2,3);
+	p4.display(2,3,3);
+	p5.display(4,2,3);
+	p4.move(2,5,2);
+	p5.move(3,4,4);
+	cout<<p1.getx(2);
+return 0;
+}
